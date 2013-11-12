@@ -283,6 +283,8 @@ static int cc2530_gpio_init(void)
 		}
 	}
 
+	gpio_post_init( );
+
 	return 0;
 }
 
@@ -293,7 +295,7 @@ static int cc2530_gpio_deinit(void)
 {
 	int ret;
 	unsigned int i;
-
+return;//
 	for (i = 0; i < ARRAY_SIZE(gpios); i++) {
 		ret = gpio_set_direction(gpios[i], GPIO_DIRECTION_IN);
 		if (ret) {
@@ -320,17 +322,22 @@ static int cc2530_enter_debug(void)
 
 	/* pulse RST low */
 	gpio_set_value(RST_GPIO, RST_GPIO_POL 0);
+	sleep( 1 );
 
 	for (i = 0; i < 2; i++) {
 		gpio_set_value(CCLK_GPIO, 0);
+		usleep(1);
 		gpio_set_value(CCLK_GPIO, 1);
+		usleep(1);
 	}
 
 	/* Keep clock low */
 	gpio_set_value(CCLK_GPIO, 0);
+	usleep(100);
 
 	/* pulse Reset high */
 	gpio_set_value(RST_GPIO, RST_GPIO_POL 1);
+	sleep( 1 );
 
 	debug_enabled = 1;
 

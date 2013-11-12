@@ -5,7 +5,7 @@
 CC?=gcc
 CFLAGS?=
 APP=cc2530prog
-GPIO_BACKEND?=gpio-sysfs
+GPIO_BACKEND?=gpio-sysfs-omap
 
 all: $(APP)
 
