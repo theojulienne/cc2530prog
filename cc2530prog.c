@@ -269,6 +269,8 @@ static int cc2530_gpio_init(void)
 	int ret;
 	unsigned int i;
 
+	gpio_pre_init( );
+
 	for (i = 0; i < ARRAY_SIZE(gpios); i++) {
 		ret = gpio_export(gpios[i]);
 		if (ret) {
@@ -282,8 +284,6 @@ static int cc2530_gpio_init(void)
 			return ret;
 		}
 	}
-
-	gpio_post_init( );
 
 	return 0;
 }

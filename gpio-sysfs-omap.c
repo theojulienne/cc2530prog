@@ -65,7 +65,7 @@ int write_file(const char *path, const char *str)
 	return ret < 0 ? -1 : 0;
 }
 
-int gpio_post_init()
+int gpio_pre_init()
 {
 	// XXX: these are tied to the speific GPIO pins used
 	write_file("/sys/kernel/debug/omap_mux/gpmc_ad0", "37" ); // DC
