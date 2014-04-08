@@ -68,9 +68,9 @@ int write_file(const char *path, const char *str)
 int gpio_pre_init()
 {
 	// XXX: these are tied to the speific GPIO pins used
-	write_file("/sys/kernel/debug/omap_mux/gpmc_ad0", "37" ); // DC
-	write_file("/sys/kernel/debug/omap_mux/gpmc_ad1", "37" ); // RST
-	write_file("/sys/kernel/debug/omap_mux/gpmc_ad4", "2f" ); // DD
+	write_file("/sys/kernel/debug/omap_mux/gpmc_ad13", "37" ); // DC
+	write_file("/sys/kernel/debug/omap_mux/gpmc_ad15", "37" ); // RST
+	write_file("/sys/kernel/debug/omap_mux/gpmc_ad14", "2f" ); // DD
 	return 0;
 }
 

@@ -3,6 +3,6 @@
 #echo 2f > /sys/kernel/debug/omap_mux/lcd_data3
 
 
-echo 37 > /sys/kernel/debug/omap_mux/gpmc_ad0 # DC
-echo 37 > /sys/kernel/debug/omap_mux/gpmc_ad1 # RST
-echo 2f > /sys/kernel/debug/omap_mux/gpmc_ad4 # DD
+echo 37 > /sys/kernel/debug/omap_mux/gpmc_ad13 # DC
+echo 37 > /sys/kernel/debug/omap_mux/gpmc_ad15 # RST
+echo 2f > /sys/kernel/debug/omap_mux/gpmc_ad14 # DD
