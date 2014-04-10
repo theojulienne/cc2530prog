@@ -1,2 +1,4 @@
 *.o
 cc2530prog
+fs
+dist
