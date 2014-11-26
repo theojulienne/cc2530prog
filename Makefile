@@ -22,4 +22,4 @@ clean:
 	rm -f *.o $(APP)
 
 install: $(APP)
-	install -m 0755 $(APP) $(DESTDIR)$(bindir)/$(APP)
+	install -D -m 0755 $(APP) $(DESTDIR)$(bindir)/$(APP)
