@@ -6,7 +6,7 @@ CC?=gcc
 CFLAGS?=
 APP=cc2530prog
 GPIO_BACKEND?=gpio-sysfs-omap
-bindir=/usr/local/bin
+bindir=/usr/bin
 
 all: $(APP)
 
