@@ -6,6 +6,7 @@ CC?=gcc
 CFLAGS?=
 APP=cc2530prog
 GPIO_BACKEND?=gpio-sysfs-omap
+bindir=/usr/local/bin
 
 all: $(APP)
 
@@ -19,3 +20,6 @@ $(APP): $(OBJS)
 
 clean:
 	rm -f *.o $(APP)
+
+install: $(APP)
+	install -m 0755 $(APP) $(DESTDIR)$(bindir)/$(APP)
