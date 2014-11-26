@@ -12,6 +12,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <errno.h>
+#include <sys/stat.h>
 
 #include "gpio.h"
 
@@ -67,10 +68,16 @@ int write_file(const char *path, const char *str)
 
 int gpio_pre_init()
 {
-	// XXX: these are tied to the speific GPIO pins used
-	write_file("/sys/kernel/debug/omap_mux/gpmc_ad13", "37" ); // DC
-	write_file("/sys/kernel/debug/omap_mux/gpmc_ad15", "37" ); // RST
-	write_file("/sys/kernel/debug/omap_mux/gpmc_ad14", "2f" ); // DD
+	struct stat s;
+	
+	// only set omap_mux values if sysfs mount available, on 3.12 this is preconfigured.
+	if (stat("/sys/kernel/debug/omap_mux", &s) == 0) {
+		// XXX: these are tied to the speific GPIO pins used
+		write_file("/sys/kernel/debug/omap_mux/gpmc_ad13", "37" ); // DC
+		write_file("/sys/kernel/debug/omap_mux/gpmc_ad15", "37" ); // RST
+		write_file("/sys/kernel/debug/omap_mux/gpmc_ad14", "2f" ); // DD
+	}
+	
 	return 0;
 }
 
